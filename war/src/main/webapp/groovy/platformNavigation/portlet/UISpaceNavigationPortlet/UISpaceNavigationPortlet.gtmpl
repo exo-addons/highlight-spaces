@@ -26,13 +26,53 @@
   import org.exoplatform.web.application.JavascriptManager;
   import org.apache.commons.lang.StringEscapeUtils;
 
+  import org.exoplatform.pin.spaces.PinnedSpacesService;
+
+
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
     uicomponent.refresh();
-        def userSpaces = uicomponent.getSpaces();
-        def spaceImageSource;
+    def userSpaces = uicomponent.getSpaces();
+    def spaceImageSource;
+
+
 
 %>
+
 <%
+  def prContext = _ctx.getRequestContext().getParentAppRequestContext();
+
+  PinnedSpacesService pinnedSpacesService = uicomponent.getApplicationComponent(PinnedSpacesService.class);
+  def pinnedSpaces = pinnedSpacesService.getUserPinnedSpaces(prContext.getRemoteUser());
+  List<String> pinnedSpacesPrettyNames = new ArrayList<String> ();
+
+  if (pinnedSpaces.size() > 0) {%>
+	<div class="uiSpaceNavigationPortlet" id="pinnedSpaces">
+    	<ul class="spaceNavigation ">
+<%
+      		for(space in pinnedSpaces) {
+            	String tabStyleNavigation="";
+                String spaceDisplayName = space.getDisplayName();
+                String spacePrettyName = space.getPrettyName(); 
+                pinnedSpacesPrettyNames.add(spacePrettyName);
+                spaceImageSource = space.getAvatarUrl();
+                String link = uicomponent.event("SelectSpace", space.getId());
+        		if(uicomponent.isSelectedSpace(space)) {
+                	tabStyleNavigation = "spaceItemSelected";
+             	}
+                if (spaceImageSource == null){
+               		spaceImageSource= LinkProvider.SPACE_DEFAULT_AVATAR_URL;
+                }
+                       
+        %>
+                <li class="spaceItem $tabStyleNavigation">
+                	<a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img data-container="body" alt="" src="$spaceImageSource" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceDisplayName"/><span data-placement="bottom" data-container="body" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>
+                </li>
+        <%  } %> <!-- END FOR -->
+
+     	</ul>
+	</div>
+<%
+  }
   String restUrl = uicomponent.getRestUrl();
   String defaultValueForTextSearch = _ctx.appRes("UISpaceNavigationPortlet.msg.filter-spaces");
   def seeSpacesLabel = _ctx.appRes("UISpaceNavigationPortlet.label.see");
@@ -58,6 +98,7 @@
     <div class="searchInput">
     <input type="text" class="searchText " placeholder="<%=defaultValueForTextSearch%>"/>
     </div>
+ 
 
         <ul class="spaceNavigation ">
 
@@ -73,11 +114,12 @@
                         if (spaceImageSource == null){
                                 spaceImageSource= LinkProvider.SPACE_DEFAULT_AVATAR_URL;
                         }
+                         if(!pinnedSpacesPrettyNames.contains(space.getPrettyName())){
         %>
                                 <li class="spaceItem $tabStyleNavigation">
                                         <a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img data-container="body" alt="" src="$spaceImageSource" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceDisplayName"/><span data-placement="bottom" data-container="body" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>
                                 </li>
-        <%        } %> <!-- END FOR -->
+        <%      }  } %> <!-- END FOR -->
 
 
     <!-- FIN -->
@@ -100,11 +142,14 @@
               }
         def joinLabel = _ctx.appRes("UISpaceNavigationPortlet.label.Join");
 %>
-        <div class="joinSpace">
+		<div class="joinSpace">
                 <a class="" href="<%= findSpacesLink %>">
                 <i class="uiIconPLFMan" id="JoinSpaceItem" data-container="body" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$joinLabel"></i>
                 $joinLabel
                 </a>
         </div>
+
+
         </div>
 </div>
+        
