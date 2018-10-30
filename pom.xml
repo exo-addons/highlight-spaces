@@ -26,14 +26,14 @@
     <parent>
         <artifactId>addons-parent-pom</artifactId>
         <groupId>org.exoplatform.addons</groupId>
-        <version>8-SNAPSHOT</version>
+        <version>8</version>
     </parent>
     <groupId>org.exoplatform.addons.pin-spaces</groupId>
     <artifactId>pin-spaces</artifactId>
     <version>1.0.x-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>New exoplatform addon</name>
-    <description>New exoplatform addon description</description>
+    <name>exo-pin-spaces addon</name>
+    <description>exoplatform pin spaces addon</description>
     <modules>
         <module>war</module>
         <module>packaging</module>
@@ -49,7 +49,7 @@
         <!-- **************************************** -->
         <!-- Dependencies versions -->
         <!-- **************************************** -->
-        <org.exoplatform.platform.version>5.0.x-SNAPSHOT</org.exoplatform.platform.version>
+        <org.exoplatform.platform.version>5.1.0</org.exoplatform.platform.version>
     </properties>
     <dependencyManagement>
         <dependencies>

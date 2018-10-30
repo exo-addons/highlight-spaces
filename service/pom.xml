@@ -29,7 +29,7 @@
         <version>1.0.x-SNAPSHOT</version>
     </parent>
     <artifactId>pin-spaces-service</artifactId>
-    <name>New exoplatform addon - Service</name>
+    <name>exo-pin-spaces addon - Service</name>
 
     <dependencies />
 </project>

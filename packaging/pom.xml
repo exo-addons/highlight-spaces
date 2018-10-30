@@ -27,9 +27,9 @@
     <version>1.0.x-SNAPSHOT</version>
   </parent>
   <artifactId>pin-spaces-packaging</artifactId>
-  <name>New exoplatform addon - Packaging</name>
+  <name>exo-pin-spaces addon - Packaging</name>
   <packaging>pom</packaging>
-  <description>New exoplatform addon packaging</description>
+  <description>exoplatform pin spaces addon packaging</description>
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.addons.pin-spaces</groupId>

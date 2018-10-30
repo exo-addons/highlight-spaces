@@ -29,7 +29,7 @@
   <artifactId>pin-spaces-webapp</artifactId>
 
   <packaging>war</packaging>
-  <name>New exoplatform addon - Webapp</name>
+  <name>exo-pin-spaces addon - Webapp</name>
   <dependencies>
 
   </dependencies>
