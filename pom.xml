@@ -26,24 +26,24 @@
     <parent>
         <artifactId>addons-parent-pom</artifactId>
         <groupId>org.exoplatform.addons</groupId>
-        <version>8</version>
+        <version>9</version>
     </parent>
-    <groupId>org.exoplatform.addons.pin-spaces</groupId>
-    <artifactId>pin-spaces</artifactId>
+    <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+    <artifactId>highlight-spaces</artifactId>
     <version>1.0.x-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>exo-pin-spaces addon</name>
-    <description>exoplatform pin spaces addon</description>
+    <name>exo-highlight-spaces addon</name>
+    <description>exoplatform highlight spaces addon</description>
     <modules>
         <module>war</module>
         <module>packaging</module>
         <module>service</module>
     </modules>
     <scm>
-        <connection>scm:git:git://github.com/exo-addons/pin-spaces.git</connection>
-        <developerConnection>scm:git:git@github.com:exo-addons/pin-spaces.git</developerConnection>
+        <connection>scm:git:git://github.com/exo-addons/highlight-spaces.git</connection>
+        <developerConnection>scm:git:git@github.com:exo-addons/highlight-spaces.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/exo-addons/pin-spaces</url>
+        <url>https://github.com/exo-addons/highlight-spaces</url>
     </scm>
     <properties>
         <!-- **************************************** -->
@@ -63,15 +63,15 @@
             </dependency>
             <!-- Declare our own artifacts -->
             <dependency>
-                <groupId>org.exoplatform.addons.pin-spaces</groupId>
-                <artifactId>pin-spaces-service</artifactId>
+                <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+                <artifactId>highlight-spaces-service</artifactId>
                 <version>${project.version}</version>
                 <type>jar</type>
             </dependency>
 
             <dependency>
-                <groupId>org.exoplatform.addons.pin-spaces</groupId>
-                <artifactId>pin-spaces-webapp</artifactId>
+                <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+                <artifactId>highlight-spaces-webapp</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
             </dependency>

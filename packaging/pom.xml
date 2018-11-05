@@ -22,23 +22,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.exoplatform.addons.pin-spaces</groupId>
-    <artifactId>pin-spaces</artifactId>
+    <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+    <artifactId>highlight-spaces</artifactId>
     <version>1.0.x-SNAPSHOT</version>
   </parent>
-  <artifactId>pin-spaces-packaging</artifactId>
-  <name>exo-pin-spaces addon - Packaging</name>
+  <artifactId>highlight-spaces-packaging</artifactId>
+  <name>exo-highlight-spaces addon - Packaging</name>
   <packaging>pom</packaging>
-  <description>exoplatform pin spaces addon packaging</description>
+  <description>exoplatform highlight spaces addon packaging</description>
   <dependencies>
     <dependency>
-      <groupId>org.exoplatform.addons.pin-spaces</groupId>
-      <artifactId>pin-spaces-webapp</artifactId>
+      <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+      <artifactId>highlight-spaces-webapp</artifactId>
       <type>war</type>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.addons.pin-spaces</groupId>
-      <artifactId>pin-spaces-service</artifactId>
+      <groupId>org.exoplatform.addons.highlight-spaces</groupId>
+      <artifactId>highlight-spaces-service</artifactId>
       <type>jar</type>
     </dependency>
   </dependencies>

@@ -19,7 +19,7 @@
             <field name="dependencies">
               <collection type="java.util.ArrayList">
                 <value>
-                  <string>pin-spaces</string>
+                  <string>highlight-spaces</string>
                 </value>
               </collection>
             </field>
