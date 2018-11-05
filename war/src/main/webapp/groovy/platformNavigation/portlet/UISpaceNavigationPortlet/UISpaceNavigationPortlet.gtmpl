@@ -26,7 +26,7 @@
   import org.exoplatform.web.application.JavascriptManager;
   import org.apache.commons.lang.StringEscapeUtils;
 
-  import org.exoplatform.pin.spaces.PinnedSpacesService;
+  import org.exoplatform.highlight.spaces.HighlightedSpacesService;
 
 
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
@@ -41,19 +41,19 @@
 <%
   def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 
-  PinnedSpacesService pinnedSpacesService = uicomponent.getApplicationComponent(PinnedSpacesService.class);
-  def pinnedSpaces = pinnedSpacesService.getUserPinnedSpaces(prContext.getRemoteUser());
-  List<String> pinnedSpacesPrettyNames = new ArrayList<String> ();
+  HighlightedSpacesService highlightedSpacesService = uicomponent.getApplicationComponent(HighlightedSpacesService.class);
+  def highlightedSpaces = highlightedSpacesService.getUserHighlightedSpaces(prContext.getRemoteUser());
+  List<String> highlightedSpacesPrettyNames = new ArrayList<String> ();
 
-  if (pinnedSpaces.size() > 0) {%>
-	<div class="uiSpaceNavigationPortlet" id="pinnedSpaces">
+  if (highlightedSpaces.size() > 0) {%>
+	<div class="uiSpaceNavigationPortlet" id="highlightedSpaces">
     	<ul class="spaceNavigation ">
 <%
-      		for(space in pinnedSpaces) {
+      		for(space in highlightedSpaces) {
             	String tabStyleNavigation="";
                 String spaceDisplayName = space.getDisplayName();
                 String spacePrettyName = space.getPrettyName(); 
-                pinnedSpacesPrettyNames.add(spacePrettyName);
+                highlightedSpacesPrettyNames.add(spacePrettyName);
                 spaceImageSource = space.getAvatarUrl();
                 String link = uicomponent.event("SelectSpace", space.getId());
         		if(uicomponent.isSelectedSpace(space)) {
@@ -114,7 +114,7 @@
                         if (spaceImageSource == null){
                                 spaceImageSource= LinkProvider.SPACE_DEFAULT_AVATAR_URL;
                         }
-                         if(!pinnedSpacesPrettyNames.contains(space.getPrettyName())){
+                         if(!highlightedSpacesPrettyNames.contains(space.getPrettyName())){
         %>
                                 <li class="spaceItem $tabStyleNavigation">
                                         <a href="javascript:void(0);" onclick="$link" class="spaceIcon avatarMini" ><img data-container="body" alt="" src="$spaceImageSource" data-placement="right" rel="tooltip" data-toggle="tooltip" title="$spaceDisplayName"/><span data-placement="bottom" data-container="body" rel="tooltip" data-toggle="tooltip" data-original-title="$spaceDisplayName"> $spaceDisplayName</span></a>

@@ -23,7 +23,7 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-    <id>pin-spaces</id>
+    <id>highlight-spaces</id>
     <formats>
         <format>zip</format>
     </formats>
@@ -33,9 +33,9 @@
         <!-- Libraries -->
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>org.exoplatform.addons.pin-spaces:pin-spaces-service:jar</include>
+                <include>org.exoplatform.addons.highlight-spaces:highlight-spaces-service:jar</include>
             </includes>
             <outputFileNameMapping>${artifact.artifactId}-${artifact.baseVersion}.${artifact.extension}
             </outputFileNameMapping>
@@ -44,11 +44,11 @@
         <!-- webapps -->
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory>webapps</outputDirectory>
             <includes>
-                <include>org.exoplatform.addons.pin-spaces:pin-spaces-webapp:war</include>
+                <include>org.exoplatform.addons.highlight-spaces:highlight-spaces-webapp:war</include>
             </includes>
-            <outputFileNameMapping>pin-spaces.war</outputFileNameMapping>
+            <outputFileNameMapping>highlight-spaces.war</outputFileNameMapping>
         </dependencySet>
     </dependencySets>
 </assembly>

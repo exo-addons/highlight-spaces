@@ -14,18 +14,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.exoplatform.addons.pin-spaces</groupId>
-		<artifactId>pin-spaces</artifactId>
+		<groupId>org.exoplatform.addons.highlight-spaces</groupId>
+		<artifactId>highlight-spaces</artifactId>
 		<version>1.0.x-SNAPSHOT</version>
 	</parent>
-	<artifactId>pin-spaces-webapp</artifactId>
+	<artifactId>highlight-spaces-webapp</artifactId>
 
 	<packaging>war</packaging>
-	<name>exo-pin-spaces addon - Webapp</name>
+	<name>exo-highlight-spaces addon - Webapp</name>
 	<dependencies>
 
 	</dependencies>
 	<build>
-		<finalName>pin-spaces</finalName>
+		<finalName>highlight-spaces</finalName>
 	</build>
 </project>

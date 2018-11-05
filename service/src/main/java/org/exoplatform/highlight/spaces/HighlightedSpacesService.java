@@ -1,4 +1,4 @@
-package org.exoplatform.pin.spaces;
+package org.exoplatform.highlight.spaces;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,52 +8,52 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.social.core.space.model.Space;
 import org.exoplatform.social.core.space.spi.SpaceService;
 
-public class PinnedSpacesService {
+public class HighlightedSpacesService {
 
-  private List<String>                        pinnedSpaces;
+  private List<String>                        highlightedSpaces;
 
-  private final String                        PINNED_SPACES = "exo.addons.pinnedSpaces";
+  private final String                        HIGHLIGHED_SPACES = "exo.addons.highlightedSpaces";
 
   private SpaceService                        spaceService;
 
-  private final ExoCache<String, List<Space>> pinnedSpacesCache;
+  private final ExoCache<String, List<Space>> highlightedSpacesCache;
 
-  public PinnedSpacesService(SpaceService spaceService, CacheService cacheService) {
-    pinnedSpaces = new ArrayList<>();
+  public HighlightedSpacesService(SpaceService spaceService, CacheService cacheService) {
+    highlightedSpaces = new ArrayList<>();
 
-    String pinnedSpacesProperty = System.getProperty(PINNED_SPACES, "").trim();
-    String[] spaceName = pinnedSpacesProperty.split(",");
+    String highlightedSpacesProperty = System.getProperty(HIGHLIGHED_SPACES, "").trim();
+    String[] spaceName = highlightedSpacesProperty.split(",");
     for (String space : spaceName) {
       if (!space.equals("")) {
-        pinnedSpaces.add(space.trim());
+        highlightedSpaces.add(space.trim());
       }
     }
     this.spaceService = spaceService;
 
-    pinnedSpacesCache = cacheService.getCacheInstance(this.getClass().getName() + "Cache");
+    highlightedSpacesCache = cacheService.getCacheInstance(this.getClass().getName() + "Cache");
 
   }
 
-  public List<Space> getUserPinnedSpaces(String remoteUser) {
+  public List<Space> getUserHighlightedSpaces(String remoteUser) {
 
-    List<Space> cachedResults = pinnedSpacesCache.get(remoteUser);
+    List<Space> cachedResults = highlightedSpacesCache.get(remoteUser);
     if (cachedResults != null) {
       return cleanCachedResult(cachedResults);
     }
     List<Space> results = new ArrayList<>();
 
-    for (String spaceName : pinnedSpaces) {
+    for (String spaceName : highlightedSpaces) {
       Space space = spaceService.getSpaceByPrettyName(spaceName);
       if (space != null && spaceService.isMember(space, remoteUser)) {
         results.add(space);
       }
     }
-    pinnedSpacesCache.put(remoteUser, results);
+    highlightedSpacesCache.put(remoteUser, results);
     return results;
   }
 
   public void invalidate(String target) {
-    pinnedSpacesCache.remove(target);
+    highlightedSpacesCache.remove(target);
   }
   
   /* We use this method in order to clean removed spaces since the spaceRemoved event target is null and not containing the remote user removing the space*/

@@ -13,15 +13,15 @@
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
 	<component>
-		<type>org.exoplatform.pin.spaces.PinnedSpacesService</type>
+		<type>org.exoplatform.highlight.spaces.HighlightedSpacesService</type>
 	</component>
 
 	<external-component-plugins>
 		<target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
 		<component-plugin>
-			<name>CachePinnedSpacesInvalidationListener</name>
+			<name>CacheHighlightedSpacesInvalidationListener</name>
 			<set-method>registerSpaceListenerPlugin</set-method>
-			<type>org.exoplatform.pin.spaces.CachePinnedSpacesInvalidation</type>
+			<type>org.exoplatform.highlight.spaces.CacheHighlightedSpacesInvalidation</type>
 		</component-plugin>
 	</external-component-plugins>
 </configuration>

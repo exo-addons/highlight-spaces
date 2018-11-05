@@ -1,19 +1,19 @@
-package org.exoplatform.pin.spaces;
+package org.exoplatform.highlight.spaces;
 
 import org.exoplatform.social.core.space.SpaceListenerPlugin;
 import org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent;
 
-public class CachePinnedSpacesInvalidation extends SpaceListenerPlugin {
+public class CacheHighlightedSpacesInvalidation extends SpaceListenerPlugin {
 
-  private PinnedSpacesService pinnedSpacesService;
+  private HighlightedSpacesService highlightedSpacesService;
 
-  public CachePinnedSpacesInvalidation(PinnedSpacesService pinnedSpacesService) {
-    this.pinnedSpacesService = pinnedSpacesService;
+  public CacheHighlightedSpacesInvalidation(HighlightedSpacesService highlightedSpacesService) {
+    this.highlightedSpacesService = highlightedSpacesService;
   }
 
   @Override
   public void spaceCreated(SpaceLifeCycleEvent event) {
-    pinnedSpacesService.invalidate(event.getTarget());
+    highlightedSpacesService.invalidate(event.getTarget());
   }
 
   @Override
@@ -38,12 +38,12 @@ public class CachePinnedSpacesInvalidation extends SpaceListenerPlugin {
 
   @Override
   public void joined(SpaceLifeCycleEvent event) {
-    pinnedSpacesService.invalidate(event.getTarget());
+    highlightedSpacesService.invalidate(event.getTarget());
   }
 
   @Override
   public void left(SpaceLifeCycleEvent event) {
-    pinnedSpacesService.invalidate(event.getTarget());
+    highlightedSpacesService.invalidate(event.getTarget());
   }
 
   @Override

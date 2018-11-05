@@ -15,12 +15,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.exoplatform.addons.pin-spaces</groupId>
-		<artifactId>pin-spaces</artifactId>
+		<groupId>org.exoplatform.addons.highlight-spaces</groupId>
+		<artifactId>highlight-spaces</artifactId>
 		<version>1.0.x-SNAPSHOT</version>
 	</parent>
-	<artifactId>pin-spaces-service</artifactId>
-	<name>exo-pin-spaces addon - Service</name>
+	<artifactId>highlight-spaces-service</artifactId>
+	<name>exo-highlight-spaces addon - Service</name>
 
 	<dependencies>
 		<dependency>
